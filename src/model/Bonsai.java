@@ -50,11 +50,6 @@ public abstract class Bonsai {
 
     @Override
     public String toString() {
-        return "Bonsai{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                ", originOfTree=" + originOfTree +
-                '}';
+        return String.format("║ %-8s ║ %-10.0f ║ %-14s ║ %-105s ║", id, name, price, originOfTree);
     }
 }
