@@ -2,10 +2,10 @@ package serviceManager;
 
 public interface BonsaiManager<E> {
     void display();
-    void delete(String id);
+    void delete(int id);
     void deleteAll();
     void add(E e);
-    void editName(String id, String name);
-    void editPrice(String id, double price);
-    void editOriginOfTree(String id, String originOfTree);
+    void editName(int id, String name);
+    void editPrice(int id, double price);
+
 }

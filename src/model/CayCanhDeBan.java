@@ -1,11 +1,13 @@
 package model;
 
-public class CayCanhDeBan extends Bonsai{
+import java.io.Serializable;
+
+public class CayCanhDeBan extends Bonsai implements Serializable {
 
     public CayCanhDeBan() {
     }
 
-    public CayCanhDeBan(String id, String name, double price) {
+    public CayCanhDeBan(int id, String name, double price) {
         super(id, name, price);
     }
     @Override

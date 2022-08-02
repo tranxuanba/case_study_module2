@@ -1,10 +1,12 @@
 package model;
 
-public class CayCanhPhongThuy extends Bonsai{
+import java.io.Serializable;
+
+public class CayCanhPhongThuy extends Bonsai implements Serializable {
     public CayCanhPhongThuy() {
     }
 
-    public CayCanhPhongThuy(String id, String name, double price) {
+    public CayCanhPhongThuy(int id, String name, double price) {
         super(id, name, price);
     }
     @Override

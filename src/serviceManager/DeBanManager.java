@@ -10,10 +10,10 @@ public class DeBanManager implements BonsaiManager<CayCanhDeBan> {
     private ArrayList<CayCanhDeBan> cayCanhDeBanArrayList;
     private FileBinary<CayCanhDeBan> fileBinary = new FileBinary<>();
     public DeBanManager() {
-        if (new File("FileData").length() == 0){
+        if (new File("FileDataDeBan").length() == 0){
             cayCanhDeBanArrayList = new ArrayList<>();
         }else {
-            cayCanhDeBanArrayList = fileBinary.readFile("FileData");
+            cayCanhDeBanArrayList = fileBinary.readFile("FileDataDeBan");
         }
     }
 
@@ -30,33 +30,41 @@ public class DeBanManager implements BonsaiManager<CayCanhDeBan> {
     }
 
     @Override
-    public void delete(String id) {
-      //  cayCanhDeBanArrayList.removeIf();
+    public void delete(int id) {
+      cayCanhDeBanArrayList.removeIf(x -> x.getId()==id);
+      fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
     }
 
     @Override
     public void deleteAll() {
-
+        cayCanhDeBanArrayList.clear();
+        fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
     }
 
     @Override
     public void add(CayCanhDeBan cayCanhDeBan) {
-
+        cayCanhDeBanArrayList.add(cayCanhDeBan);
+        fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
     }
 
     @Override
-    public void editName(String id, String name) {
-
+    public void editName(int id, String name) {
+        for (int i = 0; i < cayCanhDeBanArrayList.size(); i++) {
+            if ((cayCanhDeBanArrayList.get(i).getId())==id){
+                cayCanhDeBanArrayList.get(i).setName(name);
+            }
+        }
+        fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
     }
 
     @Override
-    public void editPrice(String id, double price) {
-
-    }
-
-    @Override
-    public void editOriginOfTree(String id, String originOfTree) {
-
+    public void editPrice(int id, double price) {
+        for (int i = 0; i < cayCanhDeBanArrayList.size(); i++) {
+            if ((cayCanhDeBanArrayList.get(i).getId())==id){
+                cayCanhDeBanArrayList.get(i).setPrice(price);
+            }
+        }
+        fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
     }
 
 }

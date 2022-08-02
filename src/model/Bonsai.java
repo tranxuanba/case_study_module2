@@ -1,24 +1,26 @@
 package model;
 
-public abstract class Bonsai {
-    private String id;
+import java.io.Serializable;
+
+public abstract class Bonsai implements Serializable {
+    private int id;
     private String name;
     private double price;
 
     public Bonsai() {
     }
 
-    public Bonsai(String id, String name, double price) {
+    public Bonsai(int id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

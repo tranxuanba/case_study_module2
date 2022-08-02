@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Bill {
+public class Bill implements Serializable {
     private String name;
     private double total;
     private ArrayList<Bonsai> bonsais;
