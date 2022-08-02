@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CrowlsDataDeBan {
-    private final String url = "https://caycanhminhan.vn/san-pham/cay-canh-de-ban/";
-    private ArrayList<String> nameDeBan = new ArrayList<>();
+    private static final String url = "https://caycanhminhan.vn/san-pham/cay-canh-de-ban/";
+    private static ArrayList<String> nameDeBan = new ArrayList<>();
     private ArrayList<String> priceDeBan = new ArrayList<>();
     private ArrayList<String> originOfTreeDeBan = new ArrayList<>();
     private ArrayList<String> idDeBan = new ArrayList<>();
@@ -29,15 +29,17 @@ public class CrowlsDataDeBan {
     public ArrayList<String> getIdDeBan() {
         return idDeBan;
     }
-    public void getData() {
+    public static void getData() {
         try {
             Document doc = Jsoup.connect(url).get();
-            ArrayList<Element> elements = doc.getElementsByClass("menu-item menu-item-type-taxonomy menu-item-object-product_cat menu-item-2021");
+            ArrayList<Element> elements = doc.getElementsByClass("term-description");
             for (int i = 1; i <=5; i++) {
-                nameDeBan.add(elements.get(i).getElementsByTag("a").attr())
+                nameDeBan.add(elements.get(i).getElementsByTag("a").attr("caption-attachment-2724"));
+
             }
         }catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

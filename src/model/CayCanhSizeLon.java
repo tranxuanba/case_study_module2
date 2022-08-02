@@ -4,7 +4,7 @@ public class CayCanhSizeLon extends Bonsai{
     public CayCanhSizeLon() {
     }
 
-    public CayCanhSizeLon(String id, String name, double price, double originOfTree) {
+    public CayCanhSizeLon(String id, String name, double price, String originOfTree) {
         super(id, name, price, originOfTree);
     }
 

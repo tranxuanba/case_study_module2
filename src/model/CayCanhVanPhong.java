@@ -4,7 +4,7 @@ public class CayCanhVanPhong extends Bonsai{
     public CayCanhVanPhong() {
     }
 
-    public CayCanhVanPhong(String id, String name, double price, double originOfTree) {
+    public CayCanhVanPhong(String id, String name, double price, String originOfTree) {
         super(id, name, price, originOfTree);
     }
 

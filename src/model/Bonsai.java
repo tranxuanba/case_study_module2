@@ -4,12 +4,12 @@ public abstract class Bonsai {
     private String id;
     private String name;
     private double price;
-    private double originOfTree;
+    private String originOfTree;
 
     public Bonsai() {
     }
 
-    public Bonsai(String id, String name, double price, double originOfTree) {
+    public Bonsai(String id, String name, double price, String originOfTree) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -40,11 +40,11 @@ public abstract class Bonsai {
         this.price = price;
     }
 
-    public double getOriginOfTree() {
+    public String getOriginOfTree() {
         return originOfTree;
     }
 
-    public void setOriginOfTree(double originOfTree) {
+    public void setOriginOfTree(String originOfTree) {
         this.originOfTree = originOfTree;
     }
 

@@ -4,7 +4,7 @@ public class CayCanhThuySinh extends Bonsai{
     public CayCanhThuySinh() {
     }
 
-    public CayCanhThuySinh(String id, String name, double price, double originOfTree) {
+    public CayCanhThuySinh(String id, String name, double price, String originOfTree) {
         super(id, name, price, originOfTree);
     }
     @Override

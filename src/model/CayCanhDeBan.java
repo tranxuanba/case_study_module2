@@ -5,7 +5,7 @@ public class CayCanhDeBan extends Bonsai{
     public CayCanhDeBan() {
     }
 
-    public CayCanhDeBan(String id, String name, double price, double originOfTree) {
+    public CayCanhDeBan(String id, String name, double price, String originOfTree) {
         super(id, name, price, originOfTree);
     }
     @Override
