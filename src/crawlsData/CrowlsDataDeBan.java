@@ -32,14 +32,19 @@ public class CrowlsDataDeBan {
     public static void getData() {
         try {
             Document doc = Jsoup.connect(url).get();
-            ArrayList<Element> elements = doc.getElementsByClass("term-description");
-            for (int i = 1; i <=5; i++) {
-                nameDeBan.add(elements.get(i).getElementsByTag("a").attr("caption-attachment-2724"));
-
-            }
+            ArrayList<Element> title = doc.getElementsByClass("name product-title");
+            ArrayList<Element> price = doc.getElementsByClass("woocommerce-Price-amount amount");
+            String name = title.get(0).getElementsByTag("a").text();
+            String price1 = price.get(0).getElementsByTag("span").text();
+            System.out.println(name);
+            System.out.println(price1);
         }catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        getData();
     }
 
 }

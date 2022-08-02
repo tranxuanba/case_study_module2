@@ -4,16 +4,14 @@ public abstract class Bonsai {
     private String id;
     private String name;
     private double price;
-    private String originOfTree;
 
     public Bonsai() {
     }
 
-    public Bonsai(String id, String name, double price, String originOfTree) {
+    public Bonsai(String id, String name, double price) {
         this.id = id;
         this.name = name;
         this.price = price;
-        this.originOfTree = originOfTree;
     }
 
     public String getId() {
@@ -40,16 +38,8 @@ public abstract class Bonsai {
         this.price = price;
     }
 
-    public String getOriginOfTree() {
-        return originOfTree;
-    }
-
-    public void setOriginOfTree(String originOfTree) {
-        this.originOfTree = originOfTree;
-    }
-
     @Override
     public String toString() {
-        return String.format("║ %-8s ║ %-10.0f ║ %-14s ║ %-105s ║", id, name, price, originOfTree);
+        return String.format("║ %-8s ║ %-10.0f ║ %-14s ║ %-105s ║", id, name, price);
     }
 }

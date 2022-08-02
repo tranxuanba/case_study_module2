@@ -2,10 +2,7 @@ package writerReadFile;
 
 import org.omg.CORBA.Object;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 public class FileBinary<E> {
@@ -21,7 +18,7 @@ public class FileBinary<E> {
 
     public ArrayList<E> readFile(String pathname) {
         try {
-            ObjectInputStream objectInputStream = new ObjectInputStream(new ObjectInputStream(pathname));
+            ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(pathname));
             return (ArrayList<E>) objectInputStream.readObject();
         }catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
