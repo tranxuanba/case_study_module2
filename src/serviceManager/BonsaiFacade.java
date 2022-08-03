@@ -74,5 +74,25 @@ public class BonsaiFacade {
         phongThuyManager.deleteAll();
         thuySinhManager.deleteAll();
     }
+    public void edit(int id, int choiceAdd) {
+        switch (choiceAdd){
+            case 1:
+                System.out.println("nhap ten moi");
+                String name = scanner.nextLine();
+                bonsaisManager.editName(id, name);
+                deBanManager.editName(id, name);
+                phongThuyManager.editName(id, name);
+                thuySinhManager.editName(id, name);
+                break;
+            case 2:
+                System.out.println("nhap gia moi");
+                double price = scanner.nextDouble();
+                bonsaisManager.editPrice(id, price);
+                deBanManager.editPrice(id, price);
+                phongThuyManager.editPrice(id, price);
+                thuySinhManager.editPrice(id, price);
+                break;
 
+        }
+    }
 }

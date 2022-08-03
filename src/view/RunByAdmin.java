@@ -1,8 +1,11 @@
 package view;
 
+import serviceManager.BonsaiFacade;
+
+import java.util.Scanner;
+
 public class RunByAdmin {
-    public static void main(String[] args) {
-        RunByAdmin runByAdmin = new RunByAdmin();
-//        runByAdmin;
-    }
+    private final Scanner scanner = new Scanner(System.in);
+    private final BonsaiFacade bonsaiFacade = BonsaiFacade.getInstance();
+
 }
