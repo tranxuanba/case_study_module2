@@ -6,7 +6,7 @@ import writerReadFile.FileBinary;
 import java.io.File;
 import java.util.ArrayList;
 
-public class DeBanManager implements BonsaiManager<CayCanhDeBan> {
+public class DeBanManager implements BonsaiManagers<CayCanhDeBan> {
     private ArrayList<CayCanhDeBan> cayCanhDeBanArrayList;
     private FileBinary<CayCanhDeBan> fileBinary = new FileBinary<>();
     public DeBanManager() {

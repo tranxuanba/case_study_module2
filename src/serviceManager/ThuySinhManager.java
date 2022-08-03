@@ -1,13 +1,12 @@
 package serviceManager;
 
-import model.CayCanhDeBan;
 import model.CayCanhThuySinh;
 import writerReadFile.FileBinary;
 
 import java.io.File;
 import java.util.ArrayList;
 
-public class ThuySinhManager implements BonsaiManager<CayCanhThuySinh> {
+public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
     private ArrayList<CayCanhThuySinh> cayCanhThuySinhArrayList;
     private FileBinary<CayCanhThuySinh> fileBinary = new FileBinary<>();
     public ThuySinhManager() {

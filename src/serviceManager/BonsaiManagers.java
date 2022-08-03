@@ -1,6 +1,6 @@
 package serviceManager;
 
-public interface BonsaiManager<E> {
+public interface BonsaiManagers<E> {
     void display();
     void delete(int id);
     void deleteAll();
