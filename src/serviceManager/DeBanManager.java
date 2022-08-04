@@ -1,5 +1,6 @@
 package serviceManager;
 
+import model.Bonsai;
 import model.CayCanhDeBan;
 import writerReadFile.FileBinary;
 
@@ -7,13 +8,14 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class DeBanManager implements BonsaiManagers<CayCanhDeBan> {
+    public static final String FILE_DATA_DE_BAN = "FileDataDeBan";
     private ArrayList<CayCanhDeBan> cayCanhDeBanArrayList;
     private FileBinary<CayCanhDeBan> fileBinary = new FileBinary<>();
     public DeBanManager() {
-        if (new File("FileDataDeBan").length() == 0){
+        if (new File(FILE_DATA_DE_BAN).length() == 0){
             cayCanhDeBanArrayList = new ArrayList<>();
         }else {
-            cayCanhDeBanArrayList = fileBinary.readFile("FileDataDeBan");
+            cayCanhDeBanArrayList = fileBinary.readFile(FILE_DATA_DE_BAN);
         }
     }
 
@@ -22,6 +24,8 @@ public class DeBanManager implements BonsaiManagers<CayCanhDeBan> {
         if (cayCanhDeBanArrayList.isEmpty()) {
             System.out.println("chua co thong tin cay nao");
         }else {
+           // cayCanhDeBanArrayList = fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
+            cayCanhDeBanArrayList = fileBinary.readFile(FILE_DATA_DE_BAN);
             for (CayCanhDeBan x:
                  cayCanhDeBanArrayList) {
                 System.out.println(x);
@@ -32,19 +36,19 @@ public class DeBanManager implements BonsaiManagers<CayCanhDeBan> {
     @Override
     public void delete(int id) {
       cayCanhDeBanArrayList.removeIf(x -> x.getId()==id);
-      fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
+      fileBinary.writerFile(cayCanhDeBanArrayList, FILE_DATA_DE_BAN);
     }
 
     @Override
     public void deleteAll() {
         cayCanhDeBanArrayList.clear();
-        fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
+        fileBinary.writerFile(cayCanhDeBanArrayList, FILE_DATA_DE_BAN);
     }
 
     @Override
     public void add(CayCanhDeBan cayCanhDeBan) {
         cayCanhDeBanArrayList.add(cayCanhDeBan);
-        fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
+        fileBinary.writerFile(cayCanhDeBanArrayList, FILE_DATA_DE_BAN);
     }
 
     @Override
@@ -54,7 +58,7 @@ public class DeBanManager implements BonsaiManagers<CayCanhDeBan> {
                 cayCanhDeBanArrayList.get(i).setName(name);
             }
         }
-        fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
+        fileBinary.writerFile(cayCanhDeBanArrayList, FILE_DATA_DE_BAN);
     }
 
     @Override
@@ -64,7 +68,10 @@ public class DeBanManager implements BonsaiManagers<CayCanhDeBan> {
                 cayCanhDeBanArrayList.get(i).setPrice(price);
             }
         }
-        fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
+        fileBinary.writerFile(cayCanhDeBanArrayList, FILE_DATA_DE_BAN);
+    }
+    public ArrayList<CayCanhDeBan> getDeBanArrayList() {
+        return cayCanhDeBanArrayList;
     }
 
 //    public static void main(String[] args) {

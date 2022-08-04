@@ -35,10 +35,10 @@ public class NewDataBonsai {
         ArrayList<CayCanhPhongThuy> phongThuyArrayList = new ArrayList<>();
         ArrayList<String> nameLish = crawlsDataPhongThuy.getNamePhongThuy();
         ArrayList<String> priceLish = crawlsDataPhongThuy.getPricePhongThuy();
-        int id = 0;
+        int id = 10;
         for (int i = 0; i < nameLish.size(); i++) {
             double price = Double.parseDouble(priceLish.get(i).replaceAll("₫","").trim());
-            id++;
+            id= id + 1;
             String name = nameLish.get(i);
             CayCanhPhongThuy cayCanhPhongThuy = new CayCanhPhongThuy(id, name, price);
             phongThuyArrayList.add(cayCanhPhongThuy);
@@ -49,10 +49,10 @@ public class NewDataBonsai {
         ArrayList<CayCanhThuySinh> thuySinhArrayList = new ArrayList<>();
         ArrayList<String> nameLish = crawlsDataThuySinh.getNameThuySinh();
         ArrayList<String> priceLish = crawlsDataThuySinh.getPriceThuySinh();
-        int id = 0;
+        int id = 20;
         for (int i = 0; i < nameLish.size(); i++) {
             double price = Double.parseDouble(priceLish.get(i).replaceAll("đ","").trim());
-            id++;
+            id = id + 1;
             String name = nameLish.get(i);
             CayCanhThuySinh cayCanhThuySinh = new CayCanhThuySinh(id, name, price);
             thuySinhArrayList.add(cayCanhThuySinh);

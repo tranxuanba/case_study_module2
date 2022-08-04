@@ -43,13 +43,13 @@ public class LishBonsai {
         return thuySinhFileBinary.readFile("FileDataThuySinh");
     }
 
-//    public static void main(String[] args) {
-//        LishBonsai lishBonsai = new LishBonsai();
-////        lishBonsai.setLishDeBan();
-////        lishBonsai.getLishDeBan();
-////        lishBonsai.setLishPhongThuy();
-////        lishBonsai.getLishPhongThuy();
-//        lishBonsai.setLishThuySinh();
-//        lishBonsai.getLishThuySinh();
-//    }
+    public static void main(String[] args) {
+        LishBonsai lishBonsai = new LishBonsai();
+//        lishBonsai.setLishDeBan();
+//        lishBonsai.getLishDeBan();
+//        lishBonsai.setLishPhongThuy();
+//        lishBonsai.getLishPhongThuy();
+        lishBonsai.setLishThuySinh();
+        lishBonsai.getLishThuySinh();
+    }
 }

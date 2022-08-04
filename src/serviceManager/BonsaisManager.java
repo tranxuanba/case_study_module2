@@ -11,20 +11,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class BonsaisManager implements BonsaiManagers<Bonsai> {
+    public static final String FILE_DATA_PRODUCT = "FileDataProduct";
     private ArrayList<Bonsai> bonsaiArrayList;
     private FileBinary<Bonsai> bonsaiFileBinary = new FileBinary<>();
     public BonsaisManager() {
-        if (!new File("FileDataProduct").exists()){
+        if (!new File(FILE_DATA_PRODUCT).exists()){
             try {
-                new File("FileDataProduct").createNewFile();
+                new File(FILE_DATA_PRODUCT).createNewFile();
             }catch (IOException e){
                 e.printStackTrace();
             }
         }
-        if (new File("FileDataProduct").length() == 0) {
+        if (new File(FILE_DATA_PRODUCT).length() == 0) {
             bonsaiArrayList = new ArrayList<>();
         }else {
-            bonsaiArrayList = bonsaiFileBinary.readFile("FileDataProduct");
+            bonsaiArrayList = bonsaiFileBinary.readFile(FILE_DATA_PRODUCT);
         }
     }
     public void setLishBonsai() {
@@ -32,10 +33,10 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
         bonsaiArrayList.addAll(lishBonsai.setLishDeBan());
         bonsaiArrayList.addAll(lishBonsai.setLishPhongThuy());
         bonsaiArrayList.addAll(lishBonsai.setLishThuySinh());
-        bonsaiFileBinary.writerFile(bonsaiArrayList,"FileDataProduct");
+        bonsaiFileBinary.writerFile(bonsaiArrayList,FILE_DATA_PRODUCT);
     }
     public void getLishBonsai() {
-        bonsaiFileBinary.readFile("FileDataProduct");
+        bonsaiFileBinary.readFile(FILE_DATA_PRODUCT);
     }
     public ArrayList<Bonsai> getBonsaiArrayList() {
         return bonsaiArrayList;
@@ -46,7 +47,7 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
         if (bonsaiArrayList.isEmpty()) {
             System.out.println("chua co thong tin cay nao");
         }else {
-            bonsaiArrayList = bonsaiFileBinary.readFile("FileDataProduct");
+            bonsaiArrayList = bonsaiFileBinary.readFile(FILE_DATA_PRODUCT);
             for (Bonsai x:
                     bonsaiArrayList) {
                 System.out.println(x);
@@ -57,19 +58,19 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
     @Override
     public void delete(int id) {
         bonsaiArrayList.removeIf(x -> x.getId()==id);
-        bonsaiFileBinary.writerFile(bonsaiArrayList, "FileDataProduct");
+        bonsaiFileBinary.writerFile(bonsaiArrayList, FILE_DATA_PRODUCT);
     }
 
     @Override
     public void deleteAll() {
         bonsaiArrayList.clear();
-        bonsaiFileBinary.writerFile(bonsaiArrayList, "FileDataProduct");
+        bonsaiFileBinary.writerFile(bonsaiArrayList, FILE_DATA_PRODUCT);
     }
 
     @Override
     public void add(Bonsai bonsai) {
         bonsaiArrayList.add(bonsai);
-        bonsaiFileBinary.writerFile(bonsaiArrayList, "FileDataProduct");
+        bonsaiFileBinary.writerFile(bonsaiArrayList, FILE_DATA_PRODUCT);
     }
 
     @Override
@@ -79,7 +80,7 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
                 bonsaiArrayList.get(i).setName(name);
             }
         }
-        bonsaiFileBinary.writerFile(bonsaiArrayList, "FileDataProduct");
+        bonsaiFileBinary.writerFile(bonsaiArrayList, FILE_DATA_PRODUCT);
     }
 
     @Override
@@ -89,7 +90,7 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
                 bonsaiArrayList.get(i).setPrice(price);
             }
         }
-        bonsaiFileBinary.writerFile(bonsaiArrayList, "FileDataProduct");
+        bonsaiFileBinary.writerFile(bonsaiArrayList, FILE_DATA_PRODUCT);
     }
 
 //    public static void main(String[] args) {

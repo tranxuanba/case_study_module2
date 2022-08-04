@@ -6,10 +6,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RunByAdmin {
-//    public static void main(String[] args) {
-//        RunByAdmin runByAdmin =new RunByAdmin();
-//        runByAdmin.display();
-//    }
+    public static void main(String[] args) {
+        RunByAdmin runByAdmin =new RunByAdmin();
+        runByAdmin.menuBonsaiOfAdmin();
+    }
     private final Scanner scanner = new Scanner(System.in);
     private final BonsaiFacade bonsaiFacade = BonsaiFacade.getInstance();
     public RunByAdmin() {
@@ -24,9 +24,8 @@ public class RunByAdmin {
                 System.out.println("║>[2]. Sửa thông tin                                         ║");
                 System.out.println("║>[3]. Xóa sản phẩm                                          ║");
                 System.out.println("║>[4]. Hiển thị sản phẩm                                     ║");
-                System.out.println("║>[5]. Thông tin khách hàng                                  ║");
-                System.out.println("║>[6]. Doanh thu sản phẩm                                    ║");
-                System.out.println("║>[7]. Khôi phục dữ liệu                                     ║");
+                System.out.println("║>[5]. Khôi phục dữ liệu                                     ║");
+                System.out.println("║>[6]. Tim kiem cay canh theo id                             ║");
                 System.out.println("║>[0]. Đăng xuất                                             ║");
                 System.out.println("╚============================================================╝");
                 System.out.println("moi ban nhap lua chon >>");
@@ -55,20 +54,30 @@ public class RunByAdmin {
                         deleteBonsai();
                         break;
                     case 4:
+                        display();
+                        break;
+                    case 5:
                         System.out.println("vui long doi trong giay lat");
                         bonsaiFacade.backUpData();
                         break;
+                    case 6:
+                        System.out.println("moi nhap id cay canh can tim kiem");
+                        int id = Integer.parseInt(scanner.nextLine());
+                        bonsaiFacade.findBonsaitById(id);
+                        break;
+
+
                     case 0:
                         System.out.println("Da thoat khoi he thong Admin");
                         System.out.println("---------------------------------");
-                        new Login().loginSystem();
+//                        new Login().loginSystem();
                         break;
                     default:
                         System.out.println("khong co lua chon phu hop");
                         break;
 
                 }
-            }while (true)
+            }while (true);
         }catch (Exception e){
             System.out.println("nhap sai du lieu, moi ban nhap lai");
             System.out.println("-----------------------------------");
@@ -124,12 +133,85 @@ public class RunByAdmin {
             System.out.println("║>[2]. Sửa giá                              ║");
             System.out.println("║>[0]. Thoát                                ║");
             System.out.println("╚===========================================╝");
+            display();
             System.out.println("moi ban nhap vao lua chon: ");
             int choiceAdd = Integer.parseInt(scanner.nextLine());
             bonsaiFacade.edit(id, choiceAdd);
         }catch (InputMismatchException e) {
             System.out.println("nhap sai du lieu, vui long nhap lai");
+            System.out.println("------------------------------------");
+            editBonsai(id);
         }
     }
+    public void deleteBonsai() {
+        try {
+            System.out.println("╔===========================================╗");
+            System.out.println("║     ▂ ▃ ▅ ▆ █ XOÁ CÂY CẢNH  █ ▆ ▅ ▃ ▂     ║");
+            System.out.println("╠===========================================╣");
+            System.out.println("║>[1]. Xóa cây cảnh theo ID                 ║");
+            System.out.println("║>[2]. Xóa tất cả cây cảnh                  ║");
+            System.out.println("║>[0]. Thoát                                ║");
+            System.out.println("╚===========================================╝");
+            System.out.println("moi ban nhap vao lua chon");
+            int choiceAdd = Integer.parseInt(scanner.nextLine());
+
+            switch (choiceAdd) {
+                case 1:
+                    System.out.println("moi nhap ma id");
+                    int id = Integer.parseInt(scanner.nextLine());
+                    if (bonsaiFacade.checkID(id)) {
+                        bonsaiFacade.delete(id);
+                        System.out.println("Xoa thanh cong");
+                        System.out.println("--------------------------------------");
+                    } else {
+                        System.out.println("khong co ma id tren");
+                        System.out.println("---------------------------------------");
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("ban chac chan muon xoa het du lieu");
+                    String choice = scanner.nextLine();
+                    if (choice.equalsIgnoreCase("Y")){
+                        bonsaiFacade.deleteAll();
+                        System.out.println("da xoa het du lieu");
+                        System.out.println("-----------------------");
+                    }else {
+                        break;
+                    }
+                case 0:
+                    System.out.println("thoat");
+                    break;
+                default:
+                    System.out.println("sai lua chon");
+                    break;
+            }
+        }catch (InputMismatchException e) {
+            System.out.println("nhap sai du lieu, moi nhap lai");
+            System.out.println("-------------------------------");
+            deleteBonsai();
+        }
+    }
+    public void display() {
+        try {
+            System.out.println("╔===========================================╗");
+            System.out.println("║  ▂ ▃ ▅ ▆ █ HIỂN THỊ SẢN PHẨM  █ ▆ ▅ ▃ ▂   ║");
+            System.out.println("╠===========================================╣");
+            System.out.println("║>[1]. Tất cả cây cảnh                      ║");
+            System.out.println("║>[2]. Cây cảnh để bàn                      ║");
+            System.out.println("║>[3]. Cây cảnh phong thuy                  ║");
+            System.out.println("║>[4]. Cây cảnh thuỷ sinh                   ║");
+            System.out.println("║>[0]. Thoát                                ║");
+            System.out.println("╚===========================================╝");
+            System.out.println("moi nhap vao lua chon");
+            int choiceAdd = Integer.parseInt(scanner.nextLine());
+            bonsaiFacade.displayChoice(choiceAdd);
+        }catch (InputMismatchException e) {
+            System.out.println("nhap sai du lieu, moi nhap lai");
+            System.out.println("-------------------------------");
+            display();
+        }
+    }
+
 
 }

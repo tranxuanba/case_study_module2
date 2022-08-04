@@ -21,7 +21,7 @@ public class FileBinary<E> {
             ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(pathname));
             return (ArrayList<E>) objectInputStream.readObject();
         }catch (IOException | ClassNotFoundException e) {
-            System.err.println("Lỗi đọc file "+ e.getMessage());
+            e.printStackTrace();
         }
         return null;
     }

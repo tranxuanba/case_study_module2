@@ -1,5 +1,6 @@
 package serviceManager;
 
+import model.CayCanhDeBan;
 import model.CayCanhThuySinh;
 import writerReadFile.FileBinary;
 
@@ -7,13 +8,14 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
+    public static final String FILE_DATA_THUY_SINH = "FileDataThuySinh";
     private ArrayList<CayCanhThuySinh> cayCanhThuySinhArrayList;
     private FileBinary<CayCanhThuySinh> fileBinary = new FileBinary<>();
     public ThuySinhManager() {
-        if (new File("FileDataThuySinh").length() == 0){
+        if (new File(FILE_DATA_THUY_SINH).length() == 0){
             cayCanhThuySinhArrayList = new ArrayList<>();
         }else {
-            cayCanhThuySinhArrayList = fileBinary.readFile("FileDataThuySinh");
+            cayCanhThuySinhArrayList = fileBinary.readFile(FILE_DATA_THUY_SINH);
         }
     }
 
@@ -22,6 +24,7 @@ public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
         if (cayCanhThuySinhArrayList.isEmpty()) {
             System.out.println("chua co thong tin cay nao");
         }else {
+            cayCanhThuySinhArrayList = fileBinary.readFile(FILE_DATA_THUY_SINH);
             for (CayCanhThuySinh x:
                     cayCanhThuySinhArrayList) {
                 System.out.println(x);
@@ -32,19 +35,19 @@ public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
     @Override
     public void delete(int id) {
         cayCanhThuySinhArrayList.removeIf(x -> x.getId()==id);
-        fileBinary.writerFile(cayCanhThuySinhArrayList, "FileDataThuySinh");
+        fileBinary.writerFile(cayCanhThuySinhArrayList, FILE_DATA_THUY_SINH);
     }
 
     @Override
     public void deleteAll() {
         cayCanhThuySinhArrayList.clear();
-        fileBinary.writerFile(cayCanhThuySinhArrayList, "FileDataThuySinh");
+        fileBinary.writerFile(cayCanhThuySinhArrayList, FILE_DATA_THUY_SINH);
     }
 
     @Override
     public void add(CayCanhThuySinh cayCanhThuySinh) {
         cayCanhThuySinhArrayList.add(cayCanhThuySinh);
-        fileBinary.writerFile(cayCanhThuySinhArrayList, "FileDataThuySinh");
+        fileBinary.writerFile(cayCanhThuySinhArrayList, FILE_DATA_THUY_SINH);
     }
 
     @Override
@@ -54,7 +57,7 @@ public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
                 cayCanhThuySinhArrayList.get(i).setName(name);
             }
         }
-        fileBinary.writerFile(cayCanhThuySinhArrayList, "FileDataThuySinh");
+        fileBinary.writerFile(cayCanhThuySinhArrayList, FILE_DATA_THUY_SINH);
     }
 
     @Override
@@ -64,7 +67,10 @@ public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
                 cayCanhThuySinhArrayList.get(i).setPrice(price);
             }
         }
-        fileBinary.writerFile(cayCanhThuySinhArrayList, "FileDataThuySinh");
+        fileBinary.writerFile(cayCanhThuySinhArrayList, FILE_DATA_THUY_SINH);
+    }
+    public ArrayList<CayCanhThuySinh> getThuySinhArrayList() {
+        return cayCanhThuySinhArrayList;
     }
 
 //    public static void main(String[] args) {
