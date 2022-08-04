@@ -5,6 +5,7 @@ import model.Bonsai;
 import model.CayCanhDeBan;
 import writerReadFile.FileBinary;
 
+import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,6 +34,9 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
         bonsaiArrayList.addAll(lishBonsai.setLishThuySinh());
         bonsaiFileBinary.writerFile(bonsaiArrayList,"FileDataProduct");
     }
+    public void getLishBonsai() {
+        bonsaiFileBinary.readFile("FileDataProduct");
+    }
     public ArrayList<Bonsai> getBonsaiArrayList() {
         return bonsaiArrayList;
     }
@@ -42,9 +46,10 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
         if (bonsaiArrayList.isEmpty()) {
             System.out.println("chua co thong tin cay nao");
         }else {
+            bonsaiArrayList = bonsaiFileBinary.readFile("FileDataProduct");
             for (Bonsai x:
                     bonsaiArrayList) {
-                display();
+                System.out.println(x);
             }
         }
     }
@@ -86,4 +91,10 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
         }
         bonsaiFileBinary.writerFile(bonsaiArrayList, "FileDataProduct");
     }
+
+//    public static void main(String[] args) {
+//        BonsaisManager bonsaisManager = new BonsaisManager();
+//        bonsaisManager.display();
+//    }
+
 }

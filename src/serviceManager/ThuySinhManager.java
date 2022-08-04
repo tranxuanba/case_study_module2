@@ -24,7 +24,7 @@ public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
         }else {
             for (CayCanhThuySinh x:
                     cayCanhThuySinhArrayList) {
-                display();
+                System.out.println(x);
             }
         }
     }
@@ -66,4 +66,9 @@ public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
         }
         fileBinary.writerFile(cayCanhThuySinhArrayList, "FileDataThuySinh");
     }
+
+//    public static void main(String[] args) {
+//        ThuySinhManager thuySinhManager = new ThuySinhManager();
+//        thuySinhManager.display();
+//    }
 }

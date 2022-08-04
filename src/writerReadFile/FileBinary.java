@@ -12,7 +12,7 @@ public class FileBinary<E> {
             objectOutputStream.writeObject(arrayList);
             objectOutputStream.close();
         }catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
@@ -21,7 +21,7 @@ public class FileBinary<E> {
             ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(pathname));
             return (ArrayList<E>) objectInputStream.readObject();
         }catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("Lỗi đọc file "+ e.getMessage());
         }
         return null;
     }

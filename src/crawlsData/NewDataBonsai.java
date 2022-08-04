@@ -21,11 +21,11 @@ public class NewDataBonsai {
         ArrayList<CayCanhDeBan> deBanArrayList = new ArrayList<>();
         ArrayList<String> nameLish = crawlsDataDeBan.getNameDeBan();
         ArrayList<String> priceLish = crawlsDataDeBan.getPriceDeBan();
-        int id = 0;
+        ArrayList<Integer> idLish = crawlsDataDeBan.getIdDeBan();
         for (int i = 0; i < nameLish.size(); i++) {
-            double price = Double.parseDouble(priceLish.get(i));
-            id++;
+            double price = Double.parseDouble(priceLish.get(i).replaceAll("₫","").trim());
             String name = nameLish.get(i);
+            int id = idLish.get(i);
             CayCanhDeBan cayCanhDeBan = new CayCanhDeBan(id, name, price);
             deBanArrayList.add(cayCanhDeBan);
         }
@@ -37,7 +37,7 @@ public class NewDataBonsai {
         ArrayList<String> priceLish = crawlsDataPhongThuy.getPricePhongThuy();
         int id = 0;
         for (int i = 0; i < nameLish.size(); i++) {
-            double price = Double.parseDouble(priceLish.get(i));
+            double price = Double.parseDouble(priceLish.get(i).replaceAll("₫","").trim());
             id++;
             String name = nameLish.get(i);
             CayCanhPhongThuy cayCanhPhongThuy = new CayCanhPhongThuy(id, name, price);
@@ -51,7 +51,7 @@ public class NewDataBonsai {
         ArrayList<String> priceLish = crawlsDataThuySinh.getPriceThuySinh();
         int id = 0;
         for (int i = 0; i < nameLish.size(); i++) {
-            double price = Double.parseDouble(priceLish.get(i));
+            double price = Double.parseDouble(priceLish.get(i).replaceAll("đ","").trim());
             id++;
             String name = nameLish.get(i);
             CayCanhThuySinh cayCanhThuySinh = new CayCanhThuySinh(id, name, price);

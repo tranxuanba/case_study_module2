@@ -11,7 +11,11 @@ public class CayCanhThuySinh extends Bonsai implements Serializable {
     }
     @Override
     public String toString() {
-        return String.format("║ %-8s ║ %-10.0f ║ %-14s ║ %-105s ║", getId(), getName(), getPrice());
+        return "CayCanhThuySinh" +
+                "id=" + getId() +
+                ", name='" + getName() + '\'' +
+                ", price=" + getPrice() +
+                '}';
     }
     public void display() {
         System.out.println("╔====================================================================================================================================================╗");

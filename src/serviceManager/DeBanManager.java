@@ -24,7 +24,7 @@ public class DeBanManager implements BonsaiManagers<CayCanhDeBan> {
         }else {
             for (CayCanhDeBan x:
                  cayCanhDeBanArrayList) {
-                display();
+                System.out.println(x);
             }
         }
     }
@@ -66,5 +66,10 @@ public class DeBanManager implements BonsaiManagers<CayCanhDeBan> {
         }
         fileBinary.writerFile(cayCanhDeBanArrayList, "FileDataDeBan");
     }
+
+//    public static void main(String[] args) {
+//        DeBanManager deBanManager = new DeBanManager();
+//        deBanManager.display();
+//    }
 
 }

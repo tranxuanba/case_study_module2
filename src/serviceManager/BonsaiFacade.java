@@ -1,19 +1,31 @@
 package serviceManager;
 
+import model.Bonsai;
 import model.CayCanhDeBan;
 import model.CayCanhPhongThuy;
 import model.CayCanhThuySinh;
 
 import java.util.PrimitiveIterator;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BonsaiFacade {
+//    public static void main(String[] args) {
+//            BonsaiFacade bonsaiFacade = new BonsaiFacade();
+//            bonsaiFacade.displayChoice(2);
+//    }
     private BonsaisManager bonsaisManager;
     private DeBanManager deBanManager;
     private PhongThuyManager phongThuyManager;
     private ThuySinhManager thuySinhManager;
     private static BonsaiFacade instance;
     private final Scanner scanner = new Scanner(System.in);
+    private BonsaiFacade() {
+        bonsaisManager = new BonsaisManager();
+        deBanManager = new DeBanManager();
+        phongThuyManager = new PhongThuyManager();
+        thuySinhManager = new ThuySinhManager();
+    }
 
     public synchronized static BonsaiFacade getInstance(){
         if (instance == null){
@@ -94,5 +106,30 @@ public class BonsaiFacade {
                 break;
 
         }
+    }
+    public boolean checkID(int id) {
+        for (Bonsai p : bonsaisManager.getBonsaiArrayList()) {
+            if (p.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void backUpData() {
+        bonsaisManager.setLishBonsai();
+        System.err.println("Khoi phuc du lieu thanh cong");
+        System.out.println("-----------------------------------------------------------------");
+    }
+
+    public Bonsai findBonsaitById(int id){
+        Bonsai bonsai = null;
+        for (Bonsai p: bonsaisManager.getBonsaiArrayList()) {
+            if(p.getId() == id) {
+                bonsai = p;
+                break;
+            }
+        }
+        return bonsai;
     }
 }
