@@ -5,7 +5,6 @@ import model.CayCanhDeBan;
 import model.CayCanhPhongThuy;
 import model.CayCanhThuySinh;
 
-import java.util.PrimitiveIterator;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -142,7 +141,7 @@ public class BonsaiFacade {
         System.out.println("-----------------------------------------------------------------");
     }
 
-    public void findBonsaitById(int id){
+    public Bonsai findBonsaitById(int id){
         Bonsai bonsai = null;
         for (Bonsai p: bonsaisManager.getBonsaiArrayList()) {
             if(p.getId() == id) {
@@ -156,5 +155,25 @@ public class BonsaiFacade {
             System.out.println("khong tim thay cay canh can tim");
         }
 
+        return bonsai;
     }
+    public void searching() {
+        System.out.println("nhap tu ten cay can tim kiem");
+        String newName = scanner.nextLine();
+        ArrayList<Bonsai> list = bonsaisManager.findProductByKey(newName);
+        if (list.isEmpty()) {
+            System.out.println("khong co cay ban can tim");
+        }else {
+            for (Bonsai x:
+                 list) {
+                System.out.println(x);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        BonsaiFacade bonsaiFacade = new BonsaiFacade();
+        bonsaiFacade.searching();
+    }
+
 }

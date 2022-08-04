@@ -66,7 +66,6 @@ public class RunByAdmin {
                         bonsaiFacade.findBonsaitById(id);
                         break;
 
-
                     case 0:
                         System.out.println("Da thoat khoi he thong Admin");
                         System.out.println("---------------------------------");

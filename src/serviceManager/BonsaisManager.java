@@ -9,6 +9,8 @@ import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BonsaisManager implements BonsaiManagers<Bonsai> {
     public static final String FILE_DATA_PRODUCT = "FileDataProduct";
@@ -91,6 +93,22 @@ public class BonsaisManager implements BonsaiManagers<Bonsai> {
             }
         }
         bonsaiFileBinary.writerFile(bonsaiArrayList, FILE_DATA_PRODUCT);
+    }
+    private boolean checkKey(String key, String input) {
+        key = key.toUpperCase();
+        String regex = ".*" + key + ".*";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input.toUpperCase());
+        return matcher.matches();
+    }
+    public ArrayList<Bonsai> findProductByKey(String keyword){
+        ArrayList<Bonsai> listBySearch = new ArrayList<>();
+        for (Bonsai p: bonsaiArrayList) {
+            if(checkKey(keyword,p.getName())) {
+                listBySearch.add(p);
+            }
+        }
+        return listBySearch;
     }
 
 //    public static void main(String[] args) {
