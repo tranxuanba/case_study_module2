@@ -1,5 +1,6 @@
 package view;
 
+import login.Login;
 import serviceManager.BonsaiFacade;
 
 import java.util.InputMismatchException;
@@ -69,7 +70,7 @@ public class RunByAdmin {
                     case 0:
                         System.out.println("Da thoat khoi he thong Admin");
                         System.out.println("---------------------------------");
-//                        new Login().loginSystem();
+                        new Login().loginSystem();
                         break;
                     default:
                         System.out.println("khong co lua chon phu hop");
