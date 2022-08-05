@@ -27,11 +27,11 @@ public class RunByUser {
                 System.out.println("╔============================================================╗");
                 System.out.println("║              ▂ ▃ ▅ ▆ █ HỆ THỐNG USER █ ▆ ▅ ▃ ▂             ║");
                 System.out.println("╠============================================================╣");
-                System.out.println("║>[1]. Hiển thị sản phẩm trong shop                          ║");
-                System.out.println("║>[2]. Tìm kiếm sản phẩm trong shop theo ten                 ║");
-                System.out.println("║>[3]. Thêm sản phẩm vào giỏ hàng                            ║");
-                System.out.println("║>[4]. Xóa sản phẩm khỏi giỏ hàng                            ║");
-                System.out.println("║>[5]. Hiển thị sản phẩm trong giỏ hàng                      ║");
+                System.out.println("║>[1]. Hiển thị sản phẩm cây cảnh trong shop                 ║");
+                System.out.println("║>[2]. Tìm kiếm sản phẩm cây cảnh trong shop theo ten        ║");
+                System.out.println("║>[3]. Thêm sản phẩm cây cảnh vào giỏ hàng                   ║");
+                System.out.println("║>[4]. Xóa sản phẩm cây cảnh khỏi giỏ hàng                   ║");
+                System.out.println("║>[5]. Hiển thị sản phẩm cây cảnh trong giỏ hàng             ║");
                 System.out.println("║>[0]. Đăng xuất                                             ║");
                 System.out.println("╚============================================================╝");
                 System.out.println("moi ban nhap lua chon");

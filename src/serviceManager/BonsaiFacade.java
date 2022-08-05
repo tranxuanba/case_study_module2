@@ -75,6 +75,9 @@ public class BonsaiFacade {
     }
     public void delete(int id) {
         bonsaisManager.delete(id);
+        deBanManager.delete(id);
+        phongThuyManager.delete(id);
+        thuySinhManager.delete(id);
     }
     public void deleteAll(){
         bonsaisManager.deleteAll();
@@ -109,32 +112,24 @@ public class BonsaiFacade {
                 return true;
             }
         }
-        return false;
-    }
-    public boolean checkIDDeBan(int id) {
-        for (CayCanhDeBan p : deBanManager.getDeBanArrayList()) {
-            if (p.getId() == id) {
+        for (CayCanhDeBan p:
+                deBanManager.getDeBanArrayList()) {
+            if (p.getId() == id)
                 return true;
-            }
+        }
+        for (CayCanhPhongThuy p:
+                phongThuyManager.getPhongThuyArrayList()) {
+            if (p.getId() == id)
+                return true;
+        }
+        for (CayCanhThuySinh p:
+                thuySinhManager.getThuySinhArrayList()) {
+            if (p.getId() == id)
+                return true;
         }
         return false;
     }
-    public boolean checkIDPhongThuy(int id) {
-        for (CayCanhPhongThuy p : phongThuyManager.getPhongThuyArrayList()) {
-            if (p.getId() == id) {
-                return true;
-            }
-        }
-        return false;
-    }
-    public boolean checkIDThuySinh(int id) {
-        for (CayCanhThuySinh p : thuySinhManager.getThuySinhArrayList()) {
-            if (p.getId() == id) {
-                return true;
-            }
-        }
-        return false;
-    }
+
     public void backUpData() {
         bonsaisManager.setLishBonsai();
         System.err.println("Khoi phuc du lieu thanh cong");

@@ -36,6 +36,7 @@ public class PhongThuyManager implements BonsaiManagers<CayCanhPhongThuy> {
     public void delete(int id) {
         cayCanhPhongThuyArrayList.removeIf(x -> x.getId()==id);
         fileBinary.writerFile(cayCanhPhongThuyArrayList, FILE_DATA_PHONG_THUY);
+        fileBinary.readFile(FILE_DATA_PHONG_THUY);
     }
 
     @Override

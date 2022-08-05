@@ -21,15 +21,15 @@ public class RunByAdmin {
                 System.out.println("╔============================================================╗");
                 System.out.println("║              ▂ ▃ ▅ ▆ █ HỆ THỐNG ADMIN █ ▆ ▅ ▃ ▂            ║");
                 System.out.println("╠============================================================╣");
-                System.out.println("║>[1]. Thêm sản phẩm                                         ║");
+                System.out.println("║>[1]. Thêm sản phẩm cây cảnh                                ║");
                 System.out.println("║>[2]. Sửa thông tin                                         ║");
-                System.out.println("║>[3]. Xóa sản phẩm                                          ║");
+                System.out.println("║>[3]. Xóa sản phẩm cây cảnh                                 ║");
                 System.out.println("║>[4]. Hiển thị sản phẩm                                     ║");
                 System.out.println("║>[5]. Khôi phục dữ liệu                                     ║");
                 System.out.println("║>[6]. Tim kiem cay canh theo id                             ║");
                 System.out.println("║>[0]. Đăng xuất                                             ║");
                 System.out.println("╚============================================================╝");
-                System.out.println("moi ban nhap lua chon >>");
+                System.out.println("moi ban nhap lua chon");
                 int choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
                     case 1:

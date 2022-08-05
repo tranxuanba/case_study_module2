@@ -32,7 +32,7 @@ public class Login {
             System.out.println("╠============================================╣");
             System.out.println("║>[1]. ĐĂNG NHẬP ADMIN                       ║");
             System.out.println("║>[2]. TẠO TÀI KHOẢN USER                    ║");
-            System.out.println("║>[0]. Thoát                                 ║");
+            System.out.println("║>[0]. THOÁT                                 ║");
             System.out.println("╚============================================╝");
             System.out.println("Nhập lựa chọn: ");
             int choice = Integer.parseInt(scanner.nextLine());
@@ -41,6 +41,7 @@ public class Login {
                     loginManager();
                     break;
                 case 2:
+                    System.out.println("Tạo tài khoản đăng nhập với danh nghĩa user");
                     accountUser();
                     break;
                 case 0:
@@ -66,6 +67,7 @@ public class Login {
                 System.out.println("Đặng nhập hệ thống bởi ADMIN thành công");
                 runByAdmin.menuBonsaiOfAdmin();
             } else {
+                System.out.println("Sai thông tin tài khoản hoặc mật khẩu");
                 loginManager();
             }
         } catch (IndexOutOfBoundsException e) {

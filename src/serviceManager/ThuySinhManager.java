@@ -36,6 +36,7 @@ public class ThuySinhManager implements BonsaiManagers<CayCanhThuySinh> {
     public void delete(int id) {
         cayCanhThuySinhArrayList.removeIf(x -> x.getId()==id);
         fileBinary.writerFile(cayCanhThuySinhArrayList, FILE_DATA_THUY_SINH);
+        fileBinary.readFile(FILE_DATA_THUY_SINH);
     }
 
     @Override
